@@ -25,7 +25,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    void _showSnackBar(String text, String ans) {
+    void showSnackBar(String text, String ans) {
       final SnackBar snackBar = SnackBar(
           duration: const Duration(milliseconds: 500),
           backgroundColor:
@@ -44,7 +44,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
 
-    Future<void> _alertDialog() async {
+    Future<void> alertDialog() async {
       switch (await showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -68,10 +68,10 @@ class _TabletScaffoldState extends State<TabletScaffold> {
             );
           })) {
         case 'yes':
-          _showSnackBar('Thanks!', 'Yes');
+          showSnackBar('Thanks!', 'Yes');
           break;
         case 'No':
-          _showSnackBar('Oh! No... Try to provide you best', 'No');
+          showSnackBar('Oh! No... Try to provide you best', 'No');
       }
     }
 
@@ -90,12 +90,12 @@ class _TabletScaffoldState extends State<TabletScaffold> {
           IconButton(
             icon: const Icon(Icons.comment),
             tooltip: 'Comment Icon',
-            onPressed: _alertDialog,
+            onPressed: alertDialog,
           ), //IconButton
           IconButton(
               icon: const Icon(Icons.settings),
               tooltip: 'Setting Icon',
-              onPressed: _alertDialog), //IconButton
+              onPressed: alertDialog), //IconButton
         ], //<Widget>[]
         backgroundColor: Colors.blueAccent[400],
         elevation: 50.0,

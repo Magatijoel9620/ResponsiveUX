@@ -18,14 +18,13 @@ class _MobileScaffoldState extends State<MobileScaffold> {
 
   final List _widgetOptions = [
     const UxOne(),
-    const Ux2021
-    Two(),
+    const UxTwo(),
     const UxThree(),
     const UxFour(),
   ];
   @override
   Widget build(BuildContext context) {
-    void _showSnackBar(String text, String ans) {
+    void showSnackBar(String text, String ans) {
       final SnackBar snackBar = SnackBar(
           duration: const Duration(milliseconds: 500),
           backgroundColor:
@@ -44,7 +43,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
 
-    Future<void> _alertDialog() async {
+    Future<void> alertDialog() async {
       switch (await showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -68,10 +67,10 @@ class _MobileScaffoldState extends State<MobileScaffold> {
             );
           })) {
         case 'yes':
-          _showSnackBar('Thanks!', 'Yes');
+          showSnackBar('Thanks!', 'Yes');
           break;
         case 'No':
-          _showSnackBar('Oh! No... Try to provide you best', 'No');
+          showSnackBar('Oh! No... Try to provide you best', 'No');
       }
     }
 
@@ -90,19 +89,19 @@ class _MobileScaffoldState extends State<MobileScaffold> {
           IconButton(
             icon: const Icon(Icons.comment),
             tooltip: 'Comment Icon',
-            onPressed: _alertDialog,
+            onPressed: alertDialog,
           ), //IconButton
           IconButton(
               icon: const Icon(Icons.settings),
               tooltip: 'Setting Icon',
-              onPressed: _alertDialog), //IconButton
+              onPressed: alertDialog), //IconButton
         ], //<Widget>[]
         backgroundColor: Colors.blueAccent[400],
         elevation: 50.0,
         leading: IconButton(
             icon: const Icon(Icons.menu),
             tooltip: 'Menu Icon',
-            onPressed: _alertDialog),
+            onPressed: alertDialog),
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       //drawer Not Applicable
